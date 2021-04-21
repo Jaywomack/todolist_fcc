@@ -13,3 +13,9 @@ def index(request):
         return redirect('/')
 
     return render(request, 'index.html', {'todos': todo})
+
+
+def delete(request, pk):
+    todo = Todo.objects.get(id=pk)
+    todo.delete()
+    return redirect('/')
